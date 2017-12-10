@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Learning Cards",
-    "icon": "./assets/turn-page.png",
+    "icon": "./assets/turn-page-green.png",
     "version": "1.0.0",
     "slug": "learningCards",
     "sdkVersion": "22.0.0",
