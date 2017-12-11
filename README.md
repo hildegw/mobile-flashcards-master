@@ -10,8 +10,7 @@ Download the zip-file from github and unpack. Go to directory where application 
 
 
 ## Limitations
-* The app has only been tested on iOS simulator using EXPO and Xcode.
-Currently, cards cannot be deleted. To facilitate demoing the app, start data contains two decks.
+Currently, cards cannot be deleted. To facilitate demoing the app, one example of a deck is included.
 
 
 ## Contribution
