@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native'
 
 export const CARD_DATA_STORAGE = 'MobileFlashcardsData'
 
-export function setStartData () {
+/* export function setStartData () {
   const startData = {
     React: {
       title: 'React',
@@ -33,7 +33,7 @@ export function setStartData () {
   }
   AsyncStorage.setItem(CARD_DATA_STORAGE, JSON.stringify({startData}))
   return startData
-}
+} */
 
 export function dataSelectDeckTitles (startData) {
   let listData = []
