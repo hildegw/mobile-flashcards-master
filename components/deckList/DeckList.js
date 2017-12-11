@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 import DeckEntry from './DeckEntry'
-import { getAllDecks } from '../../utils/cardApi'
+import { getAllDecks, addDeckAndCard } from '../../utils/cardApi'
 import { setStartData, dataSelectDeckTitles } from '../../utils/_cardData'
 import SelectButton from '../deck/SelectButton'
 import { connect } from 'react-redux'
@@ -15,10 +15,31 @@ class DeckList extends Component {
   }
 
   componentDidMount() {
-    const start = setStartData() //just to have some example data
+    //const start = setStartData() //just to have some example data
     getAllDecks().then((result) => {
-      const { startData } = result
-      this.props.allDecks({startData: startData})
+      if (dataSelectDeckTitles(result) === 0 || result === undefined) {
+        console.log("decklist result === 0", result)
+        const card = { question: "question", answer: "answer" }
+        const deckTitle = "Test"
+        const empty = []
+        const start = {
+          JavaScript: {
+            title: 'JavaScript',
+            questions: [
+              {
+                question: 'What is a closure?',
+                answer: 'The combination of a function and the lexical environment within which that function was declared.'
+              }
+            ]
+          }
+        }
+        addDeckAndCard ({ card, deckTitle, empty })
+        this.props.allDecks({startData: start})
+      } else {
+        const startData = result
+        console.log("decklist startData-result", result)
+        this.props.allDecks({startData: startData})
+      }
     })
   }
 

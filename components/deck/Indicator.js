@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { green, greenLight, orange } from '../../utils/colors'
 
 export default function Indicator ({ numberOfQuestions, index, onPress }) {
@@ -8,8 +8,6 @@ export default function Indicator ({ numberOfQuestions, index, onPress }) {
     helpArray.push(i)
   }
   // let helpArray = Array.from(Array(numberOfQuestions).keys()) //does not work in Android
-  // const deviceWidth = Dimensions.get('window').width
-  console.log('indicator', onPress)
 
   return (
 

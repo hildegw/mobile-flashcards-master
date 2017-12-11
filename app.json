@@ -5,6 +5,9 @@
     "version": "1.0.0",
     "slug": "learningCards",
     "sdkVersion": "22.0.0",
+    "packagerOpts": {
+        "nonPersistent": "--nonPersistent"
+      },
     "ios": {
       "bundleIdentifier": "com.hildegw.learningCards"
     },
