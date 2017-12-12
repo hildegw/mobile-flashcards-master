@@ -19,8 +19,12 @@ class DeckList extends Component {
     getAllDecks().then((result) => {
       if (dataSelectDeckTitles(result) === 0 || result === undefined) {
         console.log("decklist result === 0", result)
-        const card = { question: "question", answer: "answer" }
-        const deckTitle = "Test"
+        const card =
+          {
+            question: 'What is a closure?',
+            answer: 'The combination of a function and the lexical environment within which that function was declared.'
+          }
+        const deckTitle = "JavaScript"
         const empty = []
         const start = {
           JavaScript: {
