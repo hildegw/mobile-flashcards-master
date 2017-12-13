@@ -36,7 +36,6 @@ export const CARD_DATA_STORAGE = 'MobileFlashcardsData'
 } */
 
 export function dataSelectDeckTitles (startData) {
-  console.log('dataSelectDeckTitle in _cardData', startData)
   let listData = []
   if (startData !== undefined && startData !== null) {
     Object.keys(startData).map((title) => {
@@ -49,8 +48,10 @@ export function dataSelectDeckTitles (startData) {
 
 export function dataSelectDeck (startData, title) {
   let selectedDeck = {}
-  Object.keys(startData).map((item) => {
-    if (item === title) selectedDeck = startData[item]
-  })
+  if (startData !== undefined && startData !== null) {
+    Object.keys(startData).map((item) => {
+      if (item === title) selectedDeck = startData[item]
+    })
+  }
   return selectedDeck
 }

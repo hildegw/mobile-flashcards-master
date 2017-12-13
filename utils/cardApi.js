@@ -15,6 +15,7 @@ export function getAllDecks () {
 }
 
 export function addDeckAndCard ({ card, deckTitle, startData }) {
+  if (startData === null) startData = {}
   let updatedQuestions = startData[deckTitle] !== undefined
     ? [...startData[deckTitle]['questions'], card]
     : [card]
@@ -29,8 +30,7 @@ export function addDeckAndCard ({ card, deckTitle, startData }) {
 }
 
 export function clearData () {
-  AsyncStorage.removeItem(CARD_DATA_STORAGE)  // only use to reset the data
-
+  // AsyncStorage.removeItem(CARD_DATA_STORAGE)  // only use to reset the data
   return AsyncStorage.getItem(CARD_DATA_STORAGE)
     .then((result) => {
       let startData = result !== undefined
