@@ -36,8 +36,9 @@ export const CARD_DATA_STORAGE = 'MobileFlashcardsData'
 } */
 
 export function dataSelectDeckTitles (startData) {
+  console.log('dataSelectDeckTitle in _cardData', startData)
   let listData = []
-  if (startData !== undefined) {
+  if (startData !== undefined && startData !== null) {
     Object.keys(startData).map((title) => {
       let count = startData[title]['questions'].length
       listData.push({ 'key': title, 'count': count })

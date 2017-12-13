@@ -29,12 +29,13 @@ export function addDeckAndCard ({ card, deckTitle, startData }) {
 }
 
 export function clearData () {
+  AsyncStorage.removeItem(CARD_DATA_STORAGE)  // only use to reset the data
+
   return AsyncStorage.getItem(CARD_DATA_STORAGE)
     .then((result) => {
       let startData = result !== undefined
         ? result
         : {}
     })
-  // AsyncStorage.removeItem(CARD_DATA_STORAGE)  //only use to reset the data
   AsyncStorage.setItem(CARD_DATA_STORAGE, JSON.stringify(startData))
 }
