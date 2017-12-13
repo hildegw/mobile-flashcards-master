@@ -59,13 +59,14 @@ class AddDeckTitle extends Component {
 
   onPressAddCard = () => {
     const inputError = this.checkForInputError()
-    const { startData } = this.props
+    let { startData } = this.props
     const { deckTitle, question, answer } = this.state
     const card = { question: question, answer: answer }
     /* AsyncStorage mergeItem is not working on iOS, therefore handing over
       original data set with all decks plus new questions to card API to setItem */
     if (!inputError)
       {
+        if (startData === undefined) startData = []   //TODO check????
         addDeckAndCard ({ card, deckTitle, startData })
         //update startData state property with data from database
         getAllDecks().then((result) => {
