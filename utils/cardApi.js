@@ -35,7 +35,7 @@ export function clearData () {
     .then((result) => {
       let startData = result !== undefined
         ? result
-        : {}
+        : []
+      AsyncStorage.setItem(CARD_DATA_STORAGE, JSON.stringify(startData))
     })
-  AsyncStorage.setItem(CARD_DATA_STORAGE, JSON.stringify(startData))
 }

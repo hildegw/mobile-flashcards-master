@@ -155,12 +155,11 @@ class CardList extends Component {
               </View>
           :   <View style={styles.buttonsInRow} >
                   <SelectButton
-                    onPress={() => navigate('Deck', { title: selectedDeck.title })}
-                    children={'Go to Deck'} />
+                    children={''}
+                    style={{borderColor: yellowLight}} />
                   <SelectButton
-                    onPress={() => navigate('CardList', { title: selectedDeck.title })}
-                    children={'Restart'}
-                    style={{borderColor: orange}} />
+                    children={''}
+                    style={{borderColor: yellowLight}} />
               </View>
         }
 

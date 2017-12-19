@@ -8,12 +8,12 @@ class Score extends Component {
   render () {
     const deviceWidth = Dimensions.get('window').width
     const { score, numberOfQuestions } = this.props
-    const percentScore = (score === undefined || score ===0 || numberOfQuestions === 0)
+    const percentScore = (score === undefined || score === 0 || numberOfQuestions === 0)
       ? 0
-      : Math.round(score/numberOfQuestions*100)
+      : Math.round(score / numberOfQuestions * 100)
 
     return (
-      <View style={[styles.container, {width: deviceWidth-40}]}>
+      <View style={[styles.container, {width: deviceWidth - 40}]}>
         <View style={styles.indicator}>
           <Text style={styles.indicatorText} >
             {percentScore} %
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: yellowLight,
     borderRadius: 20,
-    margin: 20,
+    margin: 20
   },
   indicator: {
     padding: 20,
@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: green,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   indicatorText: {
     color: grey,
     fontSize: 32,
     textAlign: 'center',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 })
 
 function mapStateToProps (state) {

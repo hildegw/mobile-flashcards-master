@@ -11,7 +11,7 @@ import { yellowLight, green, grey } from '../../utils/colors'
 class DeckList extends Component {
 
   static navigationOptions = ({ navigation }) => {
-    return { title: 'Mobile Flashcards' }
+    return { title: 'Learning cards' }
   }
 
   componentDidMount() {
@@ -25,7 +25,7 @@ class DeckList extends Component {
   }
 
   onPressItem(title, navigate) {
-    navigate('Deck', { title: title })
+    navigate('Deck', {title: title})
   }
 
   renderAddDeckButton = () => {

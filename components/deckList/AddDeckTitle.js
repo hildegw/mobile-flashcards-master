@@ -5,6 +5,7 @@ import { getAllDecks, addDeckAndCard } from '../../utils/cardApi'
 import { grey, green, yellowLight, white, orange } from '../../utils/colors'
 import { allDecks } from './deckListAction'
 import SelectButton from '../deck/SelectButton'
+import { scoreCounter } from '../deck/scoreAction'
 
 const ADD_DECK = 'Add a new Deck'
 const ADD_CARD = 'Add a new Card'
@@ -58,6 +59,7 @@ class AddDeckTitle extends Component {
   }
 
   onPressAddCard = () => {
+    this.props.scoreCounter(0)  //reset score counter
     const inputError = this.checkForInputError()
     let { startData } = this.props
     const { deckTitle, question, answer } = this.state
@@ -66,7 +68,7 @@ class AddDeckTitle extends Component {
       original data set with all decks plus new questions to card API to setItem */
     if (!inputError)
       {
-        if (startData === undefined) startData = []   //TODO check????
+        if (startData === undefined || startData === null) startData = []
         addDeckAndCard ({ card, deckTitle, startData })
         //update startData state property with data from database
         getAllDecks().then((result) => {
@@ -74,7 +76,7 @@ class AddDeckTitle extends Component {
         })
         this.refs['question'].clear()
         this.refs['answer'].clear()
-        this.props.navigation.navigate('Deck', { title: deckTitle })
+        this.props.navigation.goBack()
       }
   }
 
@@ -178,5 +180,5 @@ function mapStateToProps (state) {
 
 export default connect(
   mapStateToProps,
-  { allDecks }
+  { allDecks, scoreCounter }
 )(AddDeckTitle)
